@@ -1,0 +1,31 @@
+{
+  "name": "galgame-demo",
+  "version": "0.1.0",
+  "private": true,
+  "main": "dist-electron/main.js",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -k \"npm:dev:renderer\" \"npm:dev:electron\"",
+    "dev:renderer": "vite",
+    "dev:electron": "wait-on tcp:5173 && tsc -p tsconfig.electron.json && cross-env VITE_DEV_SERVER_URL=http://127.0.0.1:5173 electron .",
+    "build": "vite build && tsc -p tsconfig.electron.json",
+    "preview": "vite preview",
+    "start": "electron ."
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.30",
+    "@types/react": "^18.3.23",
+    "@types/react-dom": "^18.3.7",
+    "@vitejs/plugin-react": "^4.4.1",
+    "concurrently": "^9.1.2",
+    "cross-env": "^7.0.3",
+    "electron": "^35.2.2",
+    "typescript": "^5.8.3",
+    "vite": "^5.4.19",
+    "wait-on": "^8.0.3"
+  }
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "id": "umi",
+    "name": "海已",
+    "accent": "#95f6ff",
+    "portrait": "",
+    "sprites": {
+      "default": "",
+      "soft": ""
+    },
+    "anchor": {
+      "x": 0,
+      "y": 0,
+      "scale": 1
+    }
+  },
+  {
+    "id": "rin",
+    "name": "凛",
+    "accent": "#ffcee8",
+    "portrait": "",
+    "sprites": {
+      "default": "",
+      "smile": ""
+    },
+    "anchor": {
+      "x": 0,
+      "y": 0,
+      "scale": 1
+    }
+  }
+]

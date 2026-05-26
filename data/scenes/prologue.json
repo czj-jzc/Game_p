@@ -1,0 +1,113 @@
+{
+  "id": "prologue",
+  "initialState": {
+    "background": "linear-gradient(180deg, rgba(17,57,41,0.68), rgba(9,24,16,0.66)), radial-gradient(circle at top, rgba(216,255,203,0.65), transparent 30%), linear-gradient(120deg, #295a3f 0%, #18331f 38%, #101f15 100%)",
+    "flags": {
+      "trustedUmi": false
+    }
+  },
+  "events": [
+    {
+      "type": "background",
+      "id": "forestMorning",
+      "background": "linear-gradient(180deg, rgba(17,57,41,0.3), rgba(6,14,11,0.64)), radial-gradient(circle at top, rgba(240,255,223,0.72), transparent 34%), linear-gradient(118deg, #3f7b56 0%, #1e3e26 38%, #132118 100%)"
+    },
+    {
+      "type": "showCharacter",
+      "characterId": "umi",
+      "sprite": "default",
+      "position": "center",
+      "transition": "fade"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "umi",
+      "text": "你终于来了。山路的雾刚散开，我还以为你会像昨天一样迷路。"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "umi",
+      "text": "如果这是第一版 demo，那就先从一段能跑通的相遇开始。背景、立绘、对话框、点击推进，都应该在这里工作。"
+    },
+    {
+      "type": "showCharacter",
+      "characterId": "rin",
+      "sprite": "default",
+      "position": "left",
+      "transition": "slide"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "rin",
+      "text": "别把话说得像测试用例。至少先回答她一个问题，不然分支系统就白做了。"
+    },
+    {
+      "type": "choice",
+      "id": "firstChoice",
+      "prompt": "你决定怎么回应海已？",
+      "options": [
+        {
+          "label": "说自己是特地来见她的",
+          "jumpTo": "trustPath",
+          "setFlag": {
+            "key": "trustedUmi",
+            "value": true
+          }
+        },
+        {
+          "label": "解释只是路过这里",
+          "jumpTo": "neutralPath"
+        }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "id": "trustPath",
+      "speaker": "umi",
+      "text": "这样啊……那我就把接下来的秘密告诉你。至少在这个 demo 里，你已经拿到了一个会影响后续台词的 flag。"
+    },
+    {
+      "type": "jump",
+      "target": "branchCheck"
+    },
+    {
+      "type": "dialogue",
+      "id": "neutralPath",
+      "speaker": "umi",
+      "text": "只是路过也没关系。反正故事会继续，只是我暂时不会把全部心思交给你。"
+    },
+    {
+      "type": "if",
+      "id": "branchCheck",
+      "key": "trustedUmi",
+      "equals": true,
+      "then": "trustedLine",
+      "else": "neutralLine"
+    },
+    {
+      "type": "dialogue",
+      "id": "trustedLine",
+      "speaker": "rin",
+      "text": "她的语气明显放松了。之后如果要扩展章节、变量条件和多结局，就从这条结构继续加。"
+    },
+    {
+      "type": "jump",
+      "target": "ending"
+    },
+    {
+      "type": "dialogue",
+      "id": "neutralLine",
+      "speaker": "rin",
+      "text": "她还保持着距离。不过路径已经分开了，脚本驱动和条件跳转也都通了。"
+    },
+    {
+      "type": "dialogue",
+      "id": "ending",
+      "speaker": "umi",
+      "text": "剩下的事情，就是把真实背景、立绘、头像和音乐替换进这些目录。框架已经准备好了。"
+    },
+    {
+      "type": "end"
+    }
+  ]
+}
