@@ -3,10 +3,40 @@
     "id": "umi",
     "name": "海已",
     "accent": "#95f6ff",
-    "portrait": "",
+    "portrait": "assets/characters/umi/2.png",
+    "portraitLayout": {
+      "width": 300,
+      "height": 230,
+      "scale": 1,
+      "offsetX": 56,
+      "offsetY": 0,
+      "gapAdjust": -88
+    },
     "sprites": {
-      "default": "",
-      "soft": ""
+      "default": {
+        "src": "/assets/characters/umi/1.jpg",
+        "portrait": "assets/characters/umi/2.png",
+        "portraitLayout": {
+          "width": 300,
+          "height": 230,
+          "scale": 1,
+          "offsetX": 56,
+          "offsetY": 0,
+          "gapAdjust": -88
+        }
+      },
+      "soft": {
+        "src": "/assets/characters/umi/1.jpg",
+        "portrait": "assets/characters/umi/3.png",
+        "portraitLayout": {
+          "width": 300,
+          "height": 230,
+          "scale": 1,
+          "offsetX": 18,
+          "offsetY": 0,
+          "gapAdjust": -54
+        }
+      }
     },
     "anchor": {
       "x": 0,
@@ -18,10 +48,22 @@
     "id": "rin",
     "name": "凛",
     "accent": "#ffcee8",
-    "portrait": "",
+    "portrait": "/assets/portraits/rin.svg",
+    "portraitLayout": {
+      "width": 170,
+      "height": 230,
+      "scale": 1,
+      "offsetX": 0,
+      "offsetY": 0,
+      "gapAdjust": 0
+    },
     "sprites": {
-      "default": "",
-      "smile": ""
+      "default": {
+        "src": "/assets/characters/rin/default.svg"
+      },
+      "smile": {
+        "src": "/assets/characters/rin/smile.svg"
+      }
     },
     "anchor": {
       "x": 0,

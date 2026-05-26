@@ -1,7 +1,10 @@
 {
   "id": "prologue",
+  "title": "序幕 山路晨雾",
+  "nextSceneId": "chapter-01",
   "initialState": {
-    "background": "linear-gradient(180deg, rgba(17,57,41,0.68), rgba(9,24,16,0.66)), radial-gradient(circle at top, rgba(216,255,203,0.65), transparent 30%), linear-gradient(120deg, #295a3f 0%, #18331f 38%, #101f15 100%)",
+    "background": "assets/bg/01.png",
+    "bgm": "assets/audio/bgm/prologue.mp3",
     "flags": {
       "trustedUmi": false
     }
@@ -10,7 +13,7 @@
     {
       "type": "background",
       "id": "forestMorning",
-      "background": "linear-gradient(180deg, rgba(17,57,41,0.3), rgba(6,14,11,0.64)), radial-gradient(circle at top, rgba(240,255,223,0.72), transparent 34%), linear-gradient(118deg, #3f7b56 0%, #1e3e26 38%, #132118 100%)"
+      "background": "assets/bg/01.png"
     },
     {
       "type": "showCharacter",
@@ -22,12 +25,14 @@
     {
       "type": "dialogue",
       "speaker": "umi",
-      "text": "你终于来了。山路的雾刚散开，我还以为你会像昨天一样迷路。"
+      "text": "你终于来了。山路的雾刚散开，我还以为你会像昨天一样迷路。",
+      "voice": "assets/audio/我等了很久.mp3"
     },
     {
       "type": "dialogue",
       "speaker": "umi",
-      "text": "如果这是第一版 demo，那就先从一段能跑通的相遇开始。背景、立绘、对话框、点击推进，都应该在这里工作。"
+      "text": "这一幕结束后，程序会自动切到下一幕。下一幕可以换背景、换立绘、换台词，不需要改引擎代码。",
+      "voice": "/assets/audio/umi/prologue-002.ogg"
     },
     {
       "type": "showCharacter",
@@ -37,9 +42,14 @@
       "transition": "slide"
     },
     {
+      "type": "bgm",
+      "track": "assets/audio/bgm/prologue-soft.mp3"
+    },
+    {
       "type": "dialogue",
       "speaker": "rin",
-      "text": "别把话说得像测试用例。至少先回答她一个问题，不然分支系统就白做了。"
+      "text": "先回答她的问题。这样你以后扩写分支、切章节、接语音的时候，结构都会保持稳定。",
+      "voice": "/assets/audio/rin/prologue-001.ogg"
     },
     {
       "type": "choice",
@@ -64,7 +74,8 @@
       "type": "dialogue",
       "id": "trustPath",
       "speaker": "umi",
-      "text": "这样啊……那我就把接下来的秘密告诉你。至少在这个 demo 里，你已经拿到了一个会影响后续台词的 flag。"
+      "text": "这样啊……那我就把接下来的秘密告诉你。这个 flag 会带到下一幕继续使用。",
+      "voice": "/assets/audio/umi/prologue-003.ogg"
     },
     {
       "type": "jump",
@@ -74,7 +85,8 @@
       "type": "dialogue",
       "id": "neutralPath",
       "speaker": "umi",
-      "text": "只是路过也没关系。反正故事会继续，只是我暂时不会把全部心思交给你。"
+      "text": "只是路过也没关系。故事还是会往前走，只是我暂时不会把全部心思交给你。",
+      "voice": "/assets/audio/umi/prologue-004.ogg"
     },
     {
       "type": "if",
@@ -88,7 +100,8 @@
       "type": "dialogue",
       "id": "trustedLine",
       "speaker": "rin",
-      "text": "她的语气明显放松了。之后如果要扩展章节、变量条件和多结局，就从这条结构继续加。"
+      "text": "她的语气明显放松了。这个状态会保留到下一幕，你可以继续写不同的后续台词。",
+      "voice": "/assets/audio/rin/prologue-002.ogg"
     },
     {
       "type": "jump",
@@ -98,13 +111,15 @@
       "type": "dialogue",
       "id": "neutralLine",
       "speaker": "rin",
-      "text": "她还保持着距离。不过路径已经分开了，脚本驱动和条件跳转也都通了。"
+      "text": "她还保持着距离。不过没关系，分支和条件跳转已经能正常进入下一幕了。",
+      "voice": "/assets/audio/rin/prologue-003.ogg"
     },
     {
       "type": "dialogue",
       "id": "ending",
       "speaker": "umi",
-      "text": "剩下的事情，就是把真实背景、立绘、头像和音乐替换进这些目录。框架已经准备好了。"
+      "text": "序幕到这里结束。接下来会自动进入新场景，背景和立绘都会重新布置。",
+      "voice": "/assets/audio/umi/prologue-005.ogg"
     },
     {
       "type": "end"

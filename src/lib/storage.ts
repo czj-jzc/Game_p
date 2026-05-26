@@ -8,7 +8,9 @@ const hasElectronApi = () => typeof window.electronAPI !== "undefined";
 export const defaultSettings: Settings = {
   textSpeed: 28,
   autoSpeed: 1800,
-  masterVolume: 70
+  masterVolume: 70,
+  voiceVolume: 80,
+  bgmVolume: 55
 };
 
 export async function saveProgress(snapshot: SaveSnapshot) {

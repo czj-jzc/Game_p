@@ -1,11 +1,29 @@
 export type CharacterSlot = "left" | "center" | "right";
 
+export type PortraitLayout = {
+  width?: number;
+  height?: number;
+  scale?: number;
+  offsetX?: number;
+  offsetY?: number;
+  gapAdjust?: number;
+};
+
+export type CharacterSpriteDefinition =
+  | string
+  | {
+      src: string;
+      portrait?: string;
+      portraitLayout?: PortraitLayout;
+    };
+
 export type CharacterDefinition = {
   id: string;
   name: string;
   accent: string;
   portrait?: string;
-  sprites: Record<string, string | undefined>;
+  portraitLayout?: PortraitLayout;
+  sprites: Record<string, CharacterSpriteDefinition | undefined>;
   anchor?: {
     x?: number;
     y?: number;
@@ -26,6 +44,12 @@ export type BackgroundEvent = {
   type: "background";
   id?: string;
   background: string;
+};
+
+export type BgmEvent = {
+  type: "bgm";
+  id?: string;
+  track?: string;
 };
 
 export type ShowCharacterEvent = {
@@ -85,21 +109,32 @@ export type EndEvent = {
   id?: string;
 };
 
+export type ChangeSceneEvent = {
+  type: "changeScene";
+  id?: string;
+  targetSceneId: string;
+};
+
 export type SceneEvent =
   | DialogueEvent
   | BackgroundEvent
+  | BgmEvent
   | ShowCharacterEvent
   | HideCharacterEvent
   | ChoiceEvent
   | JumpEvent
   | SetFlagEvent
   | IfEvent
+  | ChangeSceneEvent
   | EndEvent;
 
 export type SceneDefinition = {
   id: string;
+  title?: string;
+  nextSceneId?: string;
   initialState: {
     background: string;
+    bgm?: string;
     flags: Record<string, boolean | number | string>;
   };
   events: SceneEvent[];
@@ -117,13 +152,26 @@ export type Settings = {
   textSpeed: number;
   autoSpeed: number;
   masterVolume: number;
+  voiceVolume: number;
+  bgmVolume: number;
 };
 
 export type SaveSnapshot = {
   sceneId: string;
   eventIndex: number;
   background: string;
+  bgm?: string;
   activeCharacters: ActiveCharacter[];
   flags: Record<string, boolean | number | string>;
   settings: Settings;
+};
+
+export type StoryConfig = {
+  entrySceneId: string;
+  sceneOrder: string[];
+  titleScreen?: {
+    background?: string;
+    titleColumns?: string[];
+    subtitle?: string;
+  };
 };

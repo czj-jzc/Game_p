@@ -1,0 +1,70 @@
+{
+  "id": "chapter-01",
+  "title": "第一幕 遗忘之海",
+  "initialState": {
+    "background":"assets/bg/01.png",
+    "bgm": "assets/audio/bgm/chapter-01.mp3",
+    "flags": {}
+  },
+  "events": [
+    {
+      "type": "showCharacter",
+      "characterId": "rin",
+      "sprite": "smile",
+      "position": "right",
+      "transition": "fade"
+    },
+    {
+      "type": "showCharacter",
+      "characterId": "umi",
+      "sprite": "soft",
+      "position": "left",
+      "transition": "slide"
+    },
+    {
+      "type": "if",
+      "key": "trustedUmi",
+      "equals": true,
+      "then": "trustedOpening",
+      "else": "neutralOpening"
+    },
+    {
+      "type": "dialogue",
+      "id": "trustedOpening",
+      "speaker": "umi",
+      "text": "你果然跟过来了。既然刚才你选了相信我，那这一幕我就不再绕弯子。",
+      "voice": "assets/audio/我等了很久.mp3"
+    },
+    {
+      "type": "bgm",
+      "track": "assets/audio/bgm/chapter-01-tension.mp3"
+    },
+    {
+      "type": "jump",
+      "target": "sharedMiddle"
+    },
+    {
+      "type": "dialogue",
+      "id": "neutralOpening",
+      "speaker": "umi",
+      "text": "你还是来了。虽然我们刚才还不算熟，但至少故事已经顺利切到新的场景。",
+      "voice": "/assets/audio/umi/chapter-002.ogg"
+    },
+    {
+      "type": "dialogue",
+      "id": "sharedMiddle",
+      "speaker": "rin",
+      "text": "从现在开始，你只需要继续新增 scene 文件、填 events、替换素材路径，就能把整部游戏往后扩。",
+      "voice": "/assets/audio/rin/chapter-001.ogg"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "rin",
+      "text": "如果某一幕结束后还要进下一幕，就给当前 scene 顶层加 nextSceneId。要中途切幕，也可以用 changeScene 事件。",
+      "voice": "/assets/audio/rin/chapter-002.ogg"
+    },
+    {
+      "type": "end"
+    }
+  ]
+}

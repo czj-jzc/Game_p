@@ -1,0 +1,9 @@
+{
+  "entrySceneId": "prologue",
+  "sceneOrder": ["prologue", "chapter-01"],
+  "titleScreen": {
+    "background": "assets/bg/start.png",
+    "titleColumns": ["弗洛洛", "Phrolova"],
+    "subtitle": "Title background path is configurable in data/config/story.json"
+  }
+}

@@ -64,6 +64,32 @@ export default function SettingsPanel({
           />
           <span>{settings.masterVolume}</span>
         </label>
+        <label>
+          语音音量
+          <input
+            type="range"
+            min={0}
+            max={100}
+            value={settings.voiceVolume}
+            onChange={(event) =>
+              onChange({ ...settings, voiceVolume: Number(event.currentTarget.value) })
+            }
+          />
+          <span>{settings.voiceVolume}</span>
+        </label>
+        <label>
+          背景音乐音量
+          <input
+            type="range"
+            min={0}
+            max={100}
+            value={settings.bgmVolume}
+            onChange={(event) =>
+              onChange({ ...settings, bgmVolume: Number(event.currentTarget.value) })
+            }
+          />
+          <span>{settings.bgmVolume}</span>
+        </label>
       </div>
     </div>
   );
